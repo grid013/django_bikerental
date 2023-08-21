@@ -1,0 +1,64 @@
+{%extends 'base.html'%}
+{%load static%}
+{% block main %}
+<div class="container-fluid indexcover">
+    <div class="centered text-white">
+        <h1 class="display-2 fw-bold">Best Bike rental!</h1>
+    </div>
+
+</div>
+<div class="container">
+    <div class="row text-white text-center services">
+        <div class="col-md mybox m-md-2 mb-2 box1 zoom">
+            <img class="service_img" src="{% static 'images/creditcard.png'%}" alt="">
+            <br><br>
+            <h2>Faster pick-up</h2>
+            <p class="lead">We have your contract already prepared</p>
+        </div>
+        <div class="col-md mybox m-md-2 mb-2 box2 zoom">
+            <img class="service_img" src="{% static 'images/motorcycle.png'%}" alt="">
+            <br><br>
+            <h2>Rental journey</h2>
+            <p class="lead"> Over 70 years of experience</p>
+        </div>
+        <div class="col-md mybox m-md-2 mb-2 box3 zoom">
+            <img class="service_img" src="{% static 'images/jeep.png'%}" alt="">
+            <br><br>
+            <h2>Better service</h2>
+            <p class="lead">We know you better, we serve you better</p>
+        </div>
+    </div>
+    <div class="row p-4">
+        <p class="lead text-center">Discover new places and create lasting memories with our bike rentals</p>
+    </div>
+    <div class="row px-md-4 py-5">
+        <div class="col-md">
+            <div class="row mb-3">
+                <div class="col-3"><img src="{% static 'images/free.png'%}" alt="" width="80px"></div>
+                <div class="col">
+                    <h2> Free Cancellation</h2>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md">
+            <div class="row mb-3">
+                <div class="col-3"><img src="{% static 'images/dollar.png'%}" alt="" width="80px"></div>
+                <div class="col">
+                    <h2>No Hidden Charges</h2>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md">
+            <div class="row mb-3">
+                <div class="col-3"><img src="{% static 'images/headset.png'%}" alt="" width="80px"></div>
+                <div class="col">
+                    <h2>24/7 Customer Support</h2>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
