@@ -1,0 +1,58 @@
+.container-fluid {
+    padding: 0px;
+}
+
+.mybox {
+
+    padding: 4rem;
+}
+
+.mobile {
+    border: 2px solid black;
+    border-radius: 30px;
+    padding: 10px;
+    background-color: #7374b0;
+}
+
+.cover2 {
+    border-radius: 20px;
+}
+
+.gallery {
+    min-height: 400px;
+    background-image: url("/static/images/newcover.jpg");
+    background-size: cover;
+}
+
+.centered {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.contactform {
+    background-color: #F2F2F2;
+    border-radius: 20px;
+}
+
+.footerlink {
+    text-decoration: none;
+    color: white;
+}
+.social{
+    font-size: 28px;
+}
+.social a{
+    text-decoration: none;
+    color: white;
+}
+i{
+    padding-right: 10px;
+}
+.zoom{
+    transition: transform .2s;
+}
+.zoom:hover {
+    transform: scale(1.1);
+}

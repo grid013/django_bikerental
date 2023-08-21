@@ -1,0 +1,235 @@
+.container-fluid {
+    padding: 0px;
+}
+
+.mybox {
+    padding: 4rem;
+}
+
+.zoom {
+    transition: transform .2s;
+}
+
+.zoom:hover {
+    transform: scale(1.1);
+}
+
+.services {
+    margin-top: -8rem;
+}
+
+.service_img {
+    width: 100px;
+}
+
+.box1 {
+    background-color: #3151AA;
+}
+
+.box2 {
+    background-color: #5B6149;
+}
+
+.box3 {
+    background-color: #945A5C;
+}
+
+.mobile {
+    border: 2px solid black;
+    border-radius: 30px;
+    padding: 10px;
+    background-color: #7374b0;
+}
+
+.cover2 {
+    border-radius: 20px;
+}
+
+.indexcover {
+    height: 600px;
+    background-image: url("/static/images/newcover.jpg");
+    background-size: cover;
+}
+
+.centered {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.contact_div {
+    background-color: #3151AA;
+}
+
+.footer {
+    background-color: black;
+}
+
+.footerlink {
+    text-decoration: none;
+    color: white;
+}
+
+.social {
+    font-size: 28px;
+}
+
+.social a {
+    text-decoration: none;
+    color: white;
+}
+
+i {
+    padding-right: 10px;
+}
+
+.tele {
+    text-decoration: none;
+    color: white;
+}
+
+.tele:hover {
+    color: rgb(255, 148, 148);
+}
+
+.price {
+    font-size: x-large;
+    color: green;
+}
+
+.login {
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
+.register {
+    border: 2px solid black;
+    border-radius: 20px;
+}
+
+.resgister_img {
+    border-radius: 0px 20px 20px 0px;
+}
+
+.error {
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 5px;
+    background: #fad2d2;
+}
+
+.success {
+    /* color: green; */
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 5px;
+    background: #d2fad2;
+}
+
+.achive_list {
+    list-style: none;
+    font-size: x-large;
+    font-weight: bold;
+
+}
+
+.achive_list li:before {
+    content: "\2713";
+    color: #b40303;
+    font-weight: bold;
+    font-size: larger;
+    display: inline-block;
+    width: 1.5em;
+    margin-left: -1em;
+    padding: 5px;
+}
+
+.tick {
+    font-size: 40px;
+    color: green;
+}
+.red{
+    color: red;
+}
+.flex-grow-1 {
+    background-color: rgb(227, 227, 227);
+}
+
+.stars {
+    width: 80px;
+}
+
+.rate {
+    background-color: #ffbe45;
+    height: 100%;
+}
+
+.rating {
+    display: inline-block;
+    position: relative;
+    height: 50px;
+    line-height: 50px;
+    font-size: 50px;
+}
+
+.rating label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    cursor: pointer;
+}
+
+.rating label:last-child {
+    position: static;
+}
+
+.rating label:nth-child(1) {
+    z-index: 5;
+}
+
+.rating label:nth-child(2) {
+    z-index: 4;
+}
+
+.rating label:nth-child(3) {
+    z-index: 3;
+}
+
+.rating label:nth-child(4) {
+    z-index: 2;
+}
+
+.rating label:nth-child(5) {
+    z-index: 1;
+}
+
+.rating label input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.rating label .icon {
+    float: left;
+    color: transparent;
+}
+
+.rating label:last-child .icon {
+    color: #404040;
+}
+
+.rating:not(:hover) label input:checked~.icon,
+.rating:hover label:hover input~.icon {
+    color: orange;
+}
+
+.rating label input:focus:not(:checked)~.icon:last-child {
+    color: #000;
+    text-shadow: 0 0 5px #09f;
+}
+.bi-star-fill,.bi-star{
+    font-size: x-large; color: orange;
+}
