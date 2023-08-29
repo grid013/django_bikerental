@@ -1,26 +1,33 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import auth
 from django.contrib import messages
+from accounts.forms import LoginForm
 
-# def login(request):
-#     if request.method == "POST":
-#         username = request.POST.get('username')
-#         password = request.POST.get('password')
-#         user = auth.authenticate(username=username, password=password)
-#         if user is not None:
-#             auth.login(request, user)
-#             return redirect('/')
-#         else:
-#             messages.info(
-#                 request, 'Invalid!!, Check your username or password.')
-#             return redirect('/')
-#     else:
-#         return render(request, 'login.html')
+def login(request):
+    if request.method == "POST":
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        print(email, password)
+        user = auth.authenticate(email=email, password=password)
+        if user is not None:
+            print(user)
+            auth.login(request, user)
+            return redirect('/')
+        else:
+            print("here")
+            messages.info(
+                request, 'Invalid!!, Check your username or password.')
+            return redirect('/')
+    else:
+        form=LoginForm()
+        return render(request, 'login.html', {"form":form})
 
 
-# def logout(request):
-#     auth.logout(request)
-#     return redirect('/')
+def logout(request):
+    auth.logout(request)
+    messages.info(
+                request, 'You are logged out.')
+    return redirect('login')
 
 # def signup(request):
 #     if request.method == 'POST':
