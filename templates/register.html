@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block main %}
+<div class="container mt-5 py-5 ">
+    
+    <div class="row register">
+        
+        <div class="col-md px-5 py-3">
+            <h2>Register</h2>
+            <!-- <p>Welcome to bike rental app</p> -->
+            <form action="" method="post">
+                {% csrf_token %}
+                {% for field in form %}
+                <div class="row mb-3">
+                    <label for="inputEmail3" class="col-sm-3 col-form-label">{{field.label}}</label>
+                    <div class="col-sm-9">
+                        {% render_field field class+="form-control" required="true" %}
+                        <small>{{field.error}}</small>
+                    </div>
+                </div>
+                {% endfor %}
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Sign up</button>
+                </div>
+                <p class="py-2">Already have an account. <a href="{%url 'login'%}">Login</a> </p>
+            </form>
+        </div>
+        <div class="col p-0"><img class="resgister_img" src="{% static 'images/cover2.jpg'%}" alt="" width="100%"></div>
+    </div>
+</div>
+{% endblock %}

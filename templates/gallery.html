@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block main %}
+<div class="container-fluid gallery text-white mt-5">
+    <h1 class="display-1 fw-bold centered">Gallery</h1>
+</div>
+<!-- Video section -->
+<div class="container mt-5">
+    <video width="100%" controls autoplay loop>
+        <source src="{% static 'video/video.mp4'%}" type="video/mp4">
+        Your browser does not support HTML video.
+    </video>
+</div>
+
+<div class="container mt-5">
+    <!-- Gallery -->
+    <div class="row">
+        <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+            <img src="{% static 'images/cover2.jpg'%}"
+                class="w-100 shadow-1-strong rounded mb-4 zoom" alt="Boat on Calm Water" />
+
+            <img src="{% static 'images/2.jpg'%}" class="w-100 shadow-1-strong rounded mb-4 zoom"
+                alt="Wintry Mountain Landscape" />
+        </div>
+
+        <div class="col-lg-4 mb-4 mb-lg-0">
+            <img src="{% static 'images/7.jpg'%}" class="w-100 shadow-1-strong rounded mb-4 zoom"
+                alt="Mountains in the Clouds" />
+
+            <img src="{% static 'images/4.jpg'%}" class="w-100 shadow-1-strong rounded mb-4 zoom"
+                alt="Boat on Calm Water" />
+        </div>
+
+        <div class="col-lg-4 mb-4 mb-lg-0">
+            <img src="{% static 'images/5.jpg'%}" class="w-100 shadow-1-strong rounded mb-4 zoom"
+                alt="Waves at Sea" />
+
+            <img src="{% static 'images/6.jpg'%}" class="w-100 shadow-1-strong rounded mb-4 zoom"
+                alt="Yosemite National Park" />
+        </div>
+    </div>
+    <!-- Gallery -->
+</div>
+{% endblock %}

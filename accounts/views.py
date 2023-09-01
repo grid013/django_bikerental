@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import auth
 from django.contrib import messages
-from accounts.forms import LoginForm
+from accounts.forms import LoginForm, RegisterForm
 
 def login(request):
     if request.method == "POST":
@@ -29,15 +29,15 @@ def logout(request):
                 request, 'You are logged out.')
     return redirect('login')
 
-# def signup(request):
-#     if request.method == 'POST':
-#         form = UserRegisterForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             username = form.cleaned_data.get('username')
-#             messages.success(
-#                 request, "Your account has been created! Your are now able to login.")
-#             return redirect('login')
-#     else:
-#         form = UserRegisterForm()
-#     return render(request, "signup.html", {'form': form})
+def signup(request):
+    if request.method == 'POST':
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            messages.success(
+                request, "Your account has been created! Your are now able to login.")
+            return redirect('login')
+    else:
+        form = RegisterForm()
+    return render(request, "register.html", {"form":form})

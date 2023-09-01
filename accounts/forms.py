@@ -19,3 +19,14 @@ class CustomUserChangeForm(UserChangeForm):
 class LoginForm(forms.Form):
     email = forms.EmailField()
     password = forms.CharField(max_length=65, widget=forms.PasswordInput)
+
+# class RegisterForm(forms.ModelForm):
+#     class Meta:
+#         model = User
+#         fields = ("first_name", "lastname", "age", "email", "address")
+
+class RegisterForm(UserCreationForm):
+
+    class Meta(UserCreationForm):
+        model = User
+        fields = ("first_name", "last_name", "age", "email", "address")
