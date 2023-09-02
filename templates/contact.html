@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block main %}
+<style>
+    .gallery {
+        min-height: 400px;
+        background-image: url("/static/images/newcover.jpg");
+        background-size: cover;
+    }
+
+    .centered {
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+</style>
+<div class="container-fluid gallery text-white mt-5">
+    <h1 class="display-1 fw-bold centered">Contact Us</h1>
+</div>
+<div class="mapouter p-md-5">
+    <div class="gmap_canvas"><iframe width="100%" height="510" id="gmap_canvas"
+            src="https://maps.google.com/maps?q=new castle uk&t=&z=10&ie=UTF8&iwloc=&output=embed" frameborder="0"
+            scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://2yu.co">2yu</a><br>
+        <style>
+            .mapouter {
+                position: relative;
+                text-align: right;
+                height: 510px;
+                width: 100%;
+            }
+        </style><a href="https://embedgooglemap.2yu.co">html embed google map</a>
+        <style>
+            .gmap_canvas {
+                overflow: hidden;
+                background: none !important;
+                height: 510px;
+                width: 100%;
+            }
+        </style>
+    </div>
+</div>
+<br><br>
+<div class="container mt-5">
+    <div class="row mb-5">
+        <div class="col-md p-5">
+            <h1> Get in touch</h1>
+            <p class="lead">Use our contact form for all information requests or contact us directly using the
+                contact
+                information below. </p>
+            <p class="lead">Feel free to get in touch with us via email or phone </p>
+            <hr>
+            <div class="row mb-5">
+                <div class="col-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                        class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
+                    </svg>
+                </div>
+                <div class="col">
+                    <h5 class="d-inline-flex">Our Office Location</h5>
+                    <p>
+                        Newcastle Upon Tyne, ​NE08,United Kingdom </p>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                        class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                    </svg>
+                </div>
+                <div class="col">
+                    <h5 class="d-inline-flex"> Phone (Landline)</h5>
+                    <p>+44 808 880 888</p>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="col-md p-5 contactform">
+            <form method="post">
+                {%csrf_token%}
+                <h2 class="mb-5"> Get started with a free quotation</h2>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" name="name" id="name" placeholder="Enter your Name"
+                        required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Enter your Email"
+                        required>
+                </div>
+                <div class="mb-3">
+                    <label for="message" class="form-label">Message</label>
+                    <textarea class="form-control" id="message" name="message" rows="3"
+                        placeholder="Enter your message." required></textarea>
+                </div>
+                <div class="d-grid gap-2 mx-auto">
+                    <button class="btn btn-primary" type="submit">Submit your request</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block main %}
+<div class="container mt-5">
+    <div class=" p-4 mt-4">
+        <h1 class="text-center">Confirm booking</h1>
+        <hr>
+        <div class="row">
+            <div class="col-md-4">
+                <img src="{{bike.image.url}}" alt="" height="300px">
+            </div>
+            <div class="col-md">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td class="fw-bold">Bike</td>
+                            <td>{{bike.name}}</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">From</td>
+                            <td>{{start}}</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">To</td>
+                            <td>{{end}}</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Time</td>
+                            <td>{{rentfor}} {{time}}</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Total</td>
+                            <td>{{amount}} £</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <button id="submitBtn" class="btn btn-success" type="button">Confirm <span id="spinner"
+                    class="spinner-border spinner-border-sm" role="status" style="display: none;"
+                    aria-hidden="true"></span></button>&nbsp;&nbsp;
+                <a href="{% url 'bikes'%}"><button class="btn btn-secondary" type="button">Cancel</button></a>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+
+  console.log("Sanity check!");
+
+  // Get Stripe publishable key
+  fetch("/config/")
+    .then((result) => { return result.json(); })
+    .then((data) => {
+      // Initialize Stripe.js
+      const stripe = Stripe(data.publicKey);
+
+      // new
+      // Event handler
+      document.querySelector("#submitBtn").addEventListener("click", () => {
+        document.getElementById('spinner').style.display = "inline-block";
+        // Get Checkout Session ID
+        fetch("/create-checkout-session/")
+          .then((result) => { return result.json(); })
+          .then((data) => {
+            console.log(data);
+            // Redirect to Stripe Checkout
+            document.getElementById('spinner').style.display = "none";
+            return stripe.redirectToCheckout({ sessionId: data.sessionId })
+          })
+          .then((res) => {
+            console.log(res);
+          });
+      });
+    });
+</script>
+{% endblock %}

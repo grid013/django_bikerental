@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block main %}
+<div class="container mt-5">
+    <div class="row d-flex justify-content-center p-4">
+        <div class="col-md-7 col-lg-5 card shadow mt-5 p-5">
+            <h2>Edit profile</h2>
+            <hr>
+            <form action="" method="post">
+                {% csrf_token %}
+                {% for field in form %}
+                <div class="mb-3">
+                    <label for="inputEmail3" class="form-label fw-bold">{{field.label}}</label>
+                        {% render_field field class+="form-control" required="true" %}
+                        <small>{{field.error}}</small>
+                </div>
+                {% endfor %}
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

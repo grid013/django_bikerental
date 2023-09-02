@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block main %}
+<style>
+td{
+    font-size: larger;
+}
+</style>
+<div class="container mt-5 p-3">
+<div class="card p-5">
+    <div class="d-flex justify-content-end">
+        <a href="{% url 'edit'%}"><button class="btn btn-secondary">Edit</button></a>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <img src="{% static 'images/img_avatar.png'%}" alt="" width="100%">
+        </div>
+        <div class="col">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td class="fw-bold">Name</td>
+                        <td>{{user.first_name}} {{user.last_name}}</td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold">Age</td>
+                        <td>{{user.age}}</td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold">Email</td>
+                        <td>{{user.email}}</td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold">Address</td>
+                        <td>{{user.address}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <h2 class="text-center">Bookings</h2>
+        <hr>
+        <table class="table">
+            <tbody>
+                {% for book in bookings %}
+                <tr>
+                    <td><img src="{{book.bike.image.url}}" alt="" height="100px"></td>
+                    <td class="fw-bold">{{book.bike.name}}</td>
+                    <td>{{book.start}}</td>
+                    <td>{{book.end}}</td>
+                    <td>{{book.rentfor}} {{book.time}}</td>
+                    <td><a href="{% url 'delete' id=book.id%}"><button class="btn btn-danger">Delete</button></a></td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+{% endblock %}

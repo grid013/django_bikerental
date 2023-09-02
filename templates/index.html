@@ -61,4 +61,90 @@
         </div>
     </div>
 </div>
+<!-- Contact number section -->
+<div class="container-fluid contact_div">
+    <div class="row mx-md-5">
+        <div class="col-md-8 p-md-5 p-4 my-5 text-white">
+            <h1 class="display-5">Book bike near you by giving us a call!</h1>
+        </div>
+        <div class="col-md p-5 my-5 text-white">
+            <a class="tele" href="tel:+44-432-234-432">
+                <h3 class="mobile zoom"><i class="bi bi-telephone"></i>+44-432-234-432</h3>
+            </a>
+
+        </div>
+    </div>
+</div>
+<!-- Bikes listing section  -->
+<div class="container">
+    <div class="row text-center m-md-5 p-4">
+        <h1> Best bike rentals from top suppliers</h1>
+        <p class="lead">
+            Our suppliers provide both automatic and manual transmission bikes in the US, however, availability
+            may vary depending on the supplier and the location where you are renting the vehicle.
+        </p>
+    </div>
+    {% for bike in bikes %}
+    <div class="row my-4 p-4">
+        <div class="col-md-4 p-4 text-center">
+            <img class="zoom" src="{{bike.image.url}}" alt="" height="200px">
+        </div>
+        <div class="col-md">
+            <h2>{{bike.name}}</h2>
+            <p>{{bike.description}}</p>
+            <a href="{% url 'bike_detail' bike_id=bike.id%}"><button class="btn btn-primary">Book now</button></a>
+        </div>
+    </div>
+    <hr>
+    {%endfor%}
+    <div class="text-center mb-3">
+        <a href="{% url 'bikes'%}"><button class="btn btn-secondary">See more</button></a>
+    </div>
+    
+    
+
+</div>
+<div class="container-fluid box3">
+    <div class="row mx-md-5 p-5 text-white">
+        <div class="col-md">
+            <img src="{% static 'images/cover2.jpg'%}" alt="" width="100%" class="cover2">
+        </div>
+        <div class="col-md m-2">
+            <h1 class="display-4">Bike rentals for every level of rider</h1>
+            <p class="fw-bold lead">Ride with us and make your next adventure one to remember</p>
+            <p class="">At Bike rental, we believe that exploring the world on a bike is one of the most
+                exhilarating and freeing ways to travel. Our wide selection of high-quality bikes, ranging from
+                mountain bikes to road bikes to hybrids, are perfect for tackling any terrain. Whether you're an
+                experienced rider looking to hit the trails or a beginner looking to take a leisurely ride through
+                the city, we have the perfect bike for you. Our team of knowledgeable and friendly staff will help
+                you find the perfect fit and provide you with all the necessary equipment and safety gear to ensure
+                a safe and enjoyable ride. So why wait? Come join us and discover the beauty and adventure that
+                awaits on two wheels with our top-notch bike rentals.
+            </p>
+        </div>
+    </div>
+
+</div>
+<div class="container p-2">
+    <div class="row p-5">
+        <div class="col-md">
+            <h2>Bike rental Achievements</h2>
+            <p class="lead">We partner with several new bike brands to offer test rides of their latest models in
+                all four of our
+                bike rental locations. Bikes from partner brands can be test ridden or rented so you can try them
+                out
+                before making a purchase!</p>
+            
+            <ul class="achive_list">
+                <li>Better service</li>
+                <li>24/7 support</li>
+                <li>Fair prices</li>
+            </ul>
+        </div>
+        <div class="col-md">
+            <canvas id="myChart" style="width: 100%;height: 400px;"></canvas>
+        </div>
+    </div>
+
+</div>
 {% endblock %}

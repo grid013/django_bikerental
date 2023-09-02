@@ -1,0 +1,289 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block main %}
+<div class="container">
+    <div class="container mt-5 py-5">
+        <div class="row">
+            <div class="col-md">
+                <div class="px-5">
+                    <img src="{{bike.image.url}}" alt="" width="100%">
+                </div>
+            </div>
+            <div class="col-md">
+                <h2>{{bike.name}}</h2>
+                <p>{{bike.description}}</p>
+                <div class="row">
+                    <div class="col card m-2 p-2">
+                        <div class="d-flex justify-content-center">
+                            <img src="{% static 'images/engine.svg'%}" alt="" width="50px">
+                        </div>
+                        <p class="text-center fw-bold">Engine</p>
+                        <p class="text-center">{{bike.engine}}</p>
+                    </div>
+                    <div class="col card m-2 p-2">
+                        <div class="d-flex justify-content-center">
+                            <img src="{% static 'images/mileage.svg'%}" alt="" width="50px">
+                        </div>
+                        <p class="text-center fw-bold">Mileage</p>
+                        <p class="text-center">{{bike.mileage}} kmpl</p>
+
+                    </div>
+                    <div class="col card m-2 p-2">
+                        <div class="d-flex justify-content-center">
+                            <img src="{% static 'images/gear.svg'%}" alt="" width="50px">
+                        </div>
+                        <p class="text-center fw-bold">Transmission</p>
+                        <p class="text-center">{{bike.transmission}}</p>
+                    </div>
+                </div>
+                <div class="row py-4 ">
+                    <p class="price">Price: {{bike.price}} £/day</p>
+                </div>
+
+                <form class="" method="post">
+                    {%csrf_token%}
+                    <div class="row mb-5">
+                        <div class="col">
+                            <label for="from" class="form-label fw-bold">From</label>
+                            <select class="form-select" required name="from">
+                                <option selected value="">--</option>
+                                <option value='Bath'>Bath</option>
+                                <option value='Birmingham'>Birmingham</option>
+                                <option value='Bredford'>Bredford</option>
+                                <option value='Brihgton'>Brihgton&Hove</option>
+                                <option value='Cambridge'>Cambridge</option>
+                                <option value='Canterbury'>Canterbury</option>
+                                <option value='Carlise'>Carlise</option>
+                                <option value='Chester'>Chester</option>
+                                <option value='Chichester'>Chichester</option>
+                                <option value='Colchester'>Colchester</option>
+                                <option value='Coventry'>Coventry</option>
+                                <option value='Derby'>Derby</option>
+                                <option value='Doncaster'>Doncaster</option>
+                                <option value='Durham'>Durham</option>
+                                <option value='Exeter'>Exeter</option>
+                                <option value='Leeds'>Leeds</option>
+                                <option value='Leicester'>Leicester</option>
+                                <option value='Liverpool'>Liverpool</option>
+                                <option value='London'>London</option>
+                                <option value='Manchester'>Manchester</option>
+                                <option value='Newcastle-Upon-Tyne'>Peshkopi</option>
+                                <option value='Norwich'>Norwich</option>
+                                <option value='Oxford'>Oxford</option>
+                                <option value='Portsmouth'>Portsmouth</option>
+                                <option value='Preston'>Preston</option>
+                                <option value='Salford'>Salford</option>
+                                <option value='Sheffield'>Sheffield</option>
+                                <option value='Southampton'>Southampton</option>
+                                <option value='Southend-on-Sea'>Southend-on-Sea</option>
+                                <option value='St Albans'>St Albans</option>
+                                <option value='Stoke on Trent'>Stoke on Trent</option>
+                                <option value='Sunderland'>Sunderland</option>
+                                <option value='Truro'>Truro</option>
+                                <option value='Wakefield'>Wakefield</option>
+                                <option value='Wells'>Wells</option>
+                                <option value='Westminster'>Westminster</option>
+                                <option value='Winchester'>Winchester</option>
+                                <option value='Wolverhampton'>Wolverhampton</option>
+                                <option value='Worcester'>Worcester</option>
+                                <option value='York'>York</option>
+
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label for="to" class="form-label fw-bold">To</label>
+                            <select class="form-select" required name="to">
+                                <option value='Bath'>Bath</option>
+                                <option value='Birmingham'>Birmingham</option>
+                                <option value='Bredford'>Bredford</option>
+                                <option value='Brihgton'>Brihgton&Hove</option>
+                                <option value='Cambridge'>Cambridge</option>
+                                <option value='Canterbury'>Canterbury</option>
+                                <option value='Carlise'>Carlise</option>
+                                <option value='Chester'>Chester</option>
+                                <option value='Chichester'>Chichester</option>
+                                <option value='Colchester'>Colchester</option>
+                                <option value='Coventry'>Coventry</option>
+                                <option value='Derby'>Derby</option>
+                                <option value='Doncaster'>Doncaster</option>
+                                <option value='Durham'>Durham</option>
+                                <option value='Exeter'>Exeter</option>
+                                <option value='Leeds'>Leeds</option>
+                                <option value='Leicester'>Leicester</option>
+                                <option value='Liverpool'>Liverpool</option>
+                                <option value='London'>London</option>
+                                <option value='Manchester'>Manchester</option>
+                                <option value='Newcastle-Upon-Tyne'>Peshkopi</option>
+                                <option value='Norwich'>Norwich</option>
+                                <option value='Oxford'>Oxford</option>
+                                <option value='Portsmouth'>Portsmouth</option>
+                                <option value='Preston'>Preston</option>
+                                <option value='Salford'>Salford</option>
+                                <option value='Sheffield'>Sheffield</option>
+                                <option value='Southampton'>Southampton</option>
+                                <option value='Southend-on-Sea'>Southend-on-Sea</option>
+                                <option value='St Albans'>St Albans</option>
+                                <option value='Stoke on Trent'>Stoke on Trent</option>
+                                <option value='Sunderland'>Sunderland</option>
+                                <option value='Truro'>Truro</option>
+                                <option value='Wakefield'>Wakefield</option>
+                                <option value='Wells'>Wells</option>
+                                <option value='Westminster'>Westminster</option>
+                                <option value='Winchester'>Winchester</option>
+                                <option value='Wolverhampton'>Wolverhampton</option>
+                                <option value='Worcester'>Worcester</option>
+                                <option value='York'>York</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="days" class="col-sm-2 col-form-label fw-bold">Rent for</label>
+                        <div class="col-sm-4 mb-3">
+                            <input type="number" class="form-control" name="rentfor" id="days" min="1" required>
+                        </div>
+                        <div class="col">
+                            <select class="form-select" name="time">
+                                <option value="Days">Days</option>
+                                <!-- <option value="Hours">Hours</option> -->
+                                <option value="Week">Week</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="d-grid gap-2 mt-5">
+                        <button class="btn btn-success" type="submit">Book</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center row mt-3">
+            <div class="col-md-4">
+                <div class="d-flex justify-content-between">
+                    <span class="h3">User Rating</span>
+                    <div>
+                        {% for i in range %}
+                        {% if avg and avg >= i %}
+                        <i class="bi bi-star-fill"></i>
+                        {% else %}
+                        <i class="bi bi-star"></i>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                <p>{% if avg%}{{avg}}{%endif%} average based on {{total}} reviews.</p>
+                <hr style="border:3px solid #9a9a9a">
+                <div class="d-flex justify-content-between mb-3">
+                    <div class="pe-3 stars">5 star</div>
+                    <div class="flex-grow-1">
+                        {% if rating5.0 != 0 %}
+                        <div class="rate"
+                            style="width:{{rating5.1}}%"></div>
+                        {% endif %}
+                    </div>
+                    <div class="ps-4">{{rating5.0}}</div>
+                </div>
+                <div class="d-flex justify-content-between mb-3">
+                    <div class="pe-3 stars">4 star</div>
+                    <div class="flex-grow-1">
+                        {% if rating4.0 != 0 %}
+                        <div class="rate"
+                            style="width:{{rating4.1}}%"></div>
+                        {% endif %}
+                    </div>
+                    <div class="ps-4">{{rating4.0}}</div>
+                </div>
+                <div class="d-flex justify-content-between mb-3">
+                    <div class="pe-3 stars">3 star</div>
+                    <div class="flex-grow-1">
+                        {% if rating3.0 != 0 %}
+                        <div class="rate"
+                            style="width:{{rating3.1}}%"></div>
+                        {% endif %}
+                    </div>
+                    <div class="ps-4">{{rating3.0}}</div>
+                </div>
+                <div class="d-flex justify-content-between mb-3">
+                    <div class="pe-3 stars">2 star</div>
+                    <div class="flex-grow-1">
+                        {% if rating2.0 != 0 %}
+                        <div class="rate"
+                            style="width:{{rating2.1}}%"></div>
+                        {% endif %}
+                    </div>
+                    <div class="ps-4">{{rating2.0}}</div>
+                </div>
+                <div class="d-flex justify-content-between mb-3">
+                    <div class="pe-3 stars">1 star</div>
+                    <div class="flex-grow-1">
+                        {% if rating1.0 != 0 %}
+                        <div class="rate"
+                            style="width:{{rating1.1}}%"></div>
+                        {% endif %}
+                    </div>
+                    <div class="ps-4">{{rating1.0}}</div>
+                </div>
+                
+            </div>
+            <div class="col-md">
+                <span class="h3">Comments</span>
+
+                <div class="row p-4">
+                    <form action="{% url 'post_comment' bike_id=bike.id%}" id="commentform" method="post">
+                        {%csrf_token%}
+                        <textarea required class="form-control ml-1 shadow-none textarea" name="comment" id="comment"
+                            placeholder="Leave a comment."></textarea>
+                        <br>
+                        <div class="d-flex justify-content-between">
+                            <div class="rating">
+                                <label>
+                                    <input type="radio" name="stars" value="1" required />
+                                    <span class="icon">★</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="stars" value="2" />
+                                    <span class="icon">★</span>
+                                    <span class="icon">★</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="stars" value="3" />
+                                    <span class="icon">★</span>
+                                    <span class="icon">★</span>
+                                    <span class="icon">★</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="stars" value="4" />
+                                    <span class="icon">★</span>
+                                    <span class="icon">★</span>
+                                    <span class="icon">★</span>
+                                    <span class="icon">★</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="stars" value="5" />
+                                    <span class="icon">★</span>
+                                    <span class="icon">★</span>
+                                    <span class="icon">★</span>
+                                    <span class="icon">★</span>
+                                    <span class="icon">★</span>
+                                </label>
+                            </div>
+                            <button class="btn btn-secondary">Post comment</button>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="d-flex flex-column comment-section p-4" style="max-height: 350px;overflow-x: auto;">
+                    {% for comment in bike.comments.all %}
+                    <div class="card shadow mb-3 px-4">
+                        <p><b>{{comment.user.first_name}}</b> {{comment.date_created}}</p>
+                        <p>{{comment.message}}</p>
+                    </div>
+
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
