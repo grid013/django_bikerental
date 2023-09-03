@@ -135,3 +135,6 @@ AUTH_USER_MODEL = 'accounts.User'
 DOMAIN_URL = os.environ.get("DOMAIN_URL")
 STRIPE_PUBLISHABLE_KEY = os.environ.get("DOMAIN_URL")
 STRIPE_SECRET_KEY = os.environ.get("DOMAIN_URL")
+
+import django_heroku
+django_heroku.settings(locals())
