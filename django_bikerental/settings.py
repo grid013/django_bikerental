@@ -133,8 +133,8 @@ MEDIA_URL = '/media/'
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 AUTH_USER_MODEL = 'accounts.User'
 DOMAIN_URL = os.environ.get("DOMAIN_URL")
-STRIPE_PUBLISHABLE_KEY = os.environ.get("DOMAIN_URL")
-STRIPE_SECRET_KEY = os.environ.get("DOMAIN_URL")
+STRIPE_PUBLISHABLE_KEY = os.environ.get("STRIPE_PUBLISHABLE_KEY")
+STRIPE_SECRET_KEY = os.environ.get("STRIPE_SECRET_KEY")
 
 import django_heroku
 django_heroku.settings(locals())
